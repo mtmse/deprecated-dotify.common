@@ -1,4 +1,4 @@
-package org.daisy.dotify.common.split;
+package org.daisy.dotify.common.splitter;
 
 /**
  * An object that configures how a split is performed.

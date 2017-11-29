@@ -1,4 +1,4 @@
-package org.daisy.dotify.common.split;
+package org.daisy.dotify.common.splitter;
 
 public class SplitPointSpecification {
 	enum Type {

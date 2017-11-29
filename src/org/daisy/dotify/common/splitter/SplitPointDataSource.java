@@ -1,4 +1,4 @@
-package org.daisy.dotify.common.split;
+package org.daisy.dotify.common.splitter;
 
 import java.util.List;
 
@@ -11,8 +11,9 @@ import java.util.List;
  * @author Joel Håkansson
  *
  * @param <T> the type of split point units
+ * @param <U> the type of data source
  */
-public interface SplitPointDataSource<T extends SplitPointUnit> {
+public interface SplitPointDataSource<T extends SplitPointUnit, U extends SplitPointDataSource<T, U>> {
 
 	/**
 	 * Gets the item at index.
@@ -23,45 +24,25 @@ public interface SplitPointDataSource<T extends SplitPointUnit> {
 	public T get(int index);
 
 	/**
-	 * Gets the items before index.
-	 * @param toIndex the index, exclusive
-	 * @return returns a head list
-	 * @throws IndexOutOfBoundsException if the index is beyond the end of the stream
-	 * @deprecated use {@link #split(int)}
-	 */
-	@Deprecated
-	public List<T> head(int toIndex);
-	
-	/**
 	 * Gets all remaining items. Note that using this method will
 	 * result in all elements being computed, if this is not what
-	 * is needed. Consider using {@link #head(int)} instead.
+	 * is needed. Consider using {@link #split(int)} instead.
 	 * @return returns all remaining items
 	 */
 	public List<T> getRemaining();
 
 	/**
-	 * Gets a tail list.
-	 * @param fromIndex the starting index, inclusive
-	 * @return returns a new split point data source starting from fromIndex
-	 * @throws IndexOutOfBoundsException if the index is beyond the end of the stream
-	 * @deprecated use {@link #split(int)}
-	 */
-	@Deprecated
-	public SplitPointDataSource<T> tail(int fromIndex);
-
-	/**
 	 * Creates a new empty data source of the implementing type
 	 * @return returns a new empty data source of the implementing type
 	 */
-	public SplitPointDataSource<T> createEmpty();
+	public U createEmpty();
 	
 	/**
 	 * Gets the result of splitting at the specified index.
 	 * @param atIndex the index where the tail starts
 	 * @return returns a split result at the specified index
 	 */
-	public SplitResult<T> split(int atIndex);
+	public SplitResult<T, U> split(int atIndex);
 	
 	/**
 	 * Returns true if the manager has an element at the specified index
