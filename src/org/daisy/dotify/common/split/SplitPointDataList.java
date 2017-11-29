@@ -130,4 +130,9 @@ public final class SplitPointDataList<T extends SplitPointUnit> implements Split
 		return Math.min(this.units.size()-offset, limit);
 	}
 
+	@Override
+	public SplitPointDataSource<T> createEmpty() {
+		return emptyManager();
+	}
+
 }

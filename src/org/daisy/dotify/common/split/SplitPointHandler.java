@@ -102,11 +102,11 @@ public class SplitPointHandler<T extends SplitPointUnit> {
 		}
 		if (spec.getType()==Type.EMPTY) {
 			// pretty simple...
-			return new SplitPoint<>(EMPTY_LIST, EMPTY_LIST, SplitPointDataList.emptyManager(), EMPTY_LIST, false);
+			return new SplitPoint<>(EMPTY_LIST, EMPTY_LIST, data.createEmpty(), EMPTY_LIST, false);
 		} else if (spec.getType()==Type.NONE) {
 			return emptyHead(data);
 		} else if (spec.getType()==Type.ALL) {
-			return finalizeBreakpoint(new SplitList<>(data.getRemaining(), EMPTY_LIST), SplitPointDataList.emptyManager(), data.getSupplements(), false);
+			return finalizeBreakpoint(new SplitList<>(data.getRemaining(), EMPTY_LIST), data.createEmpty(), data.getSupplements(), false);
 		} else {
 			return makeBreakpoint(data, spec);
 		}
@@ -124,11 +124,11 @@ public class SplitPointHandler<T extends SplitPointUnit> {
 	public SplitPoint<T> split(SplitPointSpecification spec, SplitPointDataSource<T> data) {
 		if (spec.getType()==Type.EMPTY) {
 			// pretty simple...
-			return new SplitPoint<>(EMPTY_LIST, EMPTY_LIST, SplitPointDataList.emptyManager(), EMPTY_LIST, false);
+			return new SplitPoint<>(EMPTY_LIST, EMPTY_LIST, data.createEmpty(), EMPTY_LIST, false);
 		} else if (spec.getType()==Type.NONE) {
 			return emptyHead(data);
 		} else if (spec.getType()==Type.ALL) {
-			return finalizeBreakpoint(new SplitList<>(data.getRemaining(), EMPTY_LIST), SplitPointDataList.emptyManager(), data.getSupplements(), false);
+			return finalizeBreakpoint(new SplitList<>(data.getRemaining(), EMPTY_LIST), data.createEmpty(), data.getSupplements(), false);
 		} else {
 			return makeBreakpoint(data, spec);
 		}
@@ -331,7 +331,7 @@ public class SplitPointHandler<T extends SplitPointUnit> {
 		} else if (data.hasElementAt(tailStart-1)) {
 			return data.split(tailStart);
 		} else {
-			return new SplitResult<T>(data.getRemaining(), SplitPointDataList.emptyManager());
+			return new SplitResult<T>(data.getRemaining(), data.createEmpty());
 		}
 	}
 	

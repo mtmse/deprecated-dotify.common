@@ -49,6 +49,12 @@ public interface SplitPointDataSource<T extends SplitPointUnit> {
 	 */
 	@Deprecated
 	public SplitPointDataSource<T> tail(int fromIndex);
+
+	/**
+	 * Creates a new empty data source of the implementing type
+	 * @return returns a new empty data source of the implementing type
+	 */
+	public SplitPointDataSource<T> createEmpty();
 	
 	/**
 	 * Gets the result of splitting at the specified index.
