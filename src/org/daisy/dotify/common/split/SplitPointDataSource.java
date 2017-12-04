@@ -11,7 +11,9 @@ import java.util.List;
  * @author Joel Håkansson
  *
  * @param <T> the type of split point units
+ * @deprecated use the corresponding interface in org.daisy.dotify.common.splitter
  */
+@Deprecated
 public interface SplitPointDataSource<T extends SplitPointUnit> {
 
 	/**

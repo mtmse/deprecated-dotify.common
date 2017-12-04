@@ -4,4 +4,5 @@
  * 
  * @author Joel Håkansson
  */
+@Deprecated
 package org.daisy.dotify.common.split;

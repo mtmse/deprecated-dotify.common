@@ -20,7 +20,9 @@ import org.daisy.dotify.common.split.SplitPointSpecification.Type;
  * @author Joel Håkansson
  *
  * @param <T> the type of object
+ * @deprecated use the corresponding class in org.daisy.dotify.common.splitter
  */
+@Deprecated
 public class SplitPointHandler<T extends SplitPointUnit> {
 	private final List<T> EMPTY_LIST = Collections.emptyList();
 	private final SplitPointCost<T> defaultCost = new SplitPointCost<T>() {

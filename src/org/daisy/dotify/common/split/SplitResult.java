@@ -2,6 +2,7 @@ package org.daisy.dotify.common.split;
 
 import java.util.List;
 
+@Deprecated
 public class SplitResult<T extends SplitPointUnit> {
 	private final List<T> head;
 	private final SplitPointDataSource<T> tail;

@@ -5,9 +5,10 @@ package org.daisy.dotify.common.split;
  *  
  * @author Joel Håkansson
  * @param <T> the type of split point unit
- *
+ * @deprecated use the corresponding interface in org.daisy.dotify.common.splitter
  */
 @FunctionalInterface
+@Deprecated
 public interface SplitPointCost<T extends SplitPointUnit> {
 
 	/**
