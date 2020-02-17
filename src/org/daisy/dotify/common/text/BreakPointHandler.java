@@ -239,7 +239,7 @@ public class BreakPointHandler {
 		}  else if (state.charsStr.charAt(i)==ZERO_WIDTH_SPACE) { // ignore zero width space 
 			head = state.charsStr.substring(0, i);
 			tailStart = i+1;
-		} else if (state.charsStr.charAt(i)==DASH && state.charsStr.length()>1 && state.charsStr.charAt(i-1)==SPACE) {
+		} else if (state.charsStr.charAt(i)==DASH && state.charsStr.length()>1 && i!=0 && state.charsStr.charAt(i-1)==SPACE) {
 			// if hyphen is preceded by space, back up one more
 			head = state.charsStr.substring(0, i);
 			tailStart = i;

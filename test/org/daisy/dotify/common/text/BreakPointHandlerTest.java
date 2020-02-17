@@ -330,4 +330,11 @@ public class BreakPointHandlerTest {
 		assertEquals("", bp.getTail());
 	}
 
+	@Test
+	public void testNextRowDoesNotCrashWhenBreakpointIsTheFirstCharacterAndRowStartsWithHyphen(){
+		BreakPointHandler bph = new BreakPointHandler( "-abcdef");
+		BreakPoint bp = bph.nextRow(3, false);
+		assertEquals("-", bp.getHead());
+		assertEquals("abcdef", bp.getTail());
+	}
 }
